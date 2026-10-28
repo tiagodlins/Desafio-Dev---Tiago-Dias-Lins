@@ -22,3 +22,22 @@ enum Conta {
   CPF
   CNPJ
 }
+
+enum Luminosidade {
+  SOMBRA
+  MEIA_SOMBRA
+  SOL_PLENO
+}
+
+model Planta {
+  id            Int          @id @default(autoincrement())
+  nome          String
+  especie       String
+  preco         Int          // Em centavos (ex: 8990 = R$ 89,90)
+  estoque       Int
+  luminosidade  Luminosidade
+  petFriendly   Boolean
+  regaACadaDias Int
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+}
